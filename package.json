@@ -1,7 +1,7 @@
 {
   "name": "twgx-scaffolding",
   "version": "1.0.0",
-  "description": "",
+  "description": "Shared front-end project scaffolding for use with WP and Shopify starter themes",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/twg/twgx-scaffolding.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "TWGx",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/twg/twgx-scaffolding/issues"
