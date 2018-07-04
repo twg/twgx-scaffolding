@@ -1,122 +1,55 @@
-var gulp = require('gulp')
-var browserSync = require('browser-sync').create()
-var reload = browserSync.reload
-var plumber = require('gulp-plumber')
-var sourcemaps = require('gulp-sourcemaps')
-var scss = require('gulp-sass')
-var scssGlob = require('gulp-sass-glob')
-var autoPrefixer = require('gulp-autoprefixer')
-require('es6-promise').polyfill()
-var cleanCss = require('gulp-clean-css')
-var browserify = require('gulp-browserify')
-var uglify = require('gulp-uglify')
-var babel = require('gulp-babel')
-var rename = require('gulp-rename')
-var del = require('del')
-var imagemin = require('gulp-imagemin')
-var cleaned = false
+var gulp = require('gulp');
+var plumber = require('gulp-plumber');
+var rename = require('gulp-rename');
+var sourcemaps = require('gulp-sourcemaps');
+var sass = require('gulp-sass');
+var autoPrefixer = require('gulp-autoprefixer');
+//if node version is lower than v.0.1.2
+require('es6-promise').polyfill();
+var cleanCss = require('gulp-clean-css');
+var browserify = require('gulp-browserify');
+var uglify = require('gulp-uglify');
 
-// --------------------------------
-// Clean
-// --------------------------------
-gulp.task('clean', function (cb) {
-  if (!cleaned) {
-    del([
-      './style.min.css',
-      './scripts.js',
-      './images'
-    ]).then(function () {
-      return cb()
-    })
-    cleaned = true
-  } else {
-    return cb()
-  }
-})
-
-// --------------------------------
-// SCSS
-// --------------------------------
-gulp.task('scss', ['clean'], function () {
-  return gulp.src('./src/style.scss')
+gulp.task('sass',function(){
+  gulp.src('src/styles.scss')
     .pipe(plumber({
       handleError: function (err) {
-        console.log(err)
-        this.emit('end')
+        console.log(err);
+        this.emit('end');
       }
     }))
     .pipe(sourcemaps.init())
-    .pipe(scssGlob())
-    .pipe(scss())
+    .pipe(sass())
     .pipe(autoPrefixer())
+    .pipe(gulp.dest('dist'))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(cleanCss())
     .pipe(sourcemaps.write())
-    .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('./'))
-    .pipe(reload({stream: true}))
-})
+    .pipe(gulp.dest('dist'))
+});
 
-// --------------------------------
-// JS
-// --------------------------------
-gulp.task('js', ['clean'], function () {
-  return gulp.src('./src/scripts.js')
+gulp.task('js',function(){
+  gulp.src('src/index.js')
     .pipe(plumber({
       handleError: function (err) {
-        console.log(err)
-        this.emit('end')
+        console.log(err);
+        this.emit('end');
       }
     }))
-    .pipe(browserify())
-    .pipe(babel({
-      presets: ['env']
+      .pipe(browserify())
+    .pipe(gulp.dest('dist'))
+    .pipe(rename({
+      suffix: '.min'
     }))
-    // .pipe(uglify())
-    .pipe(gulp.dest('./'))
-    .pipe(reload({stream: true}))
-})
+    .pipe(uglify())
+    .pipe(gulp.dest('dist'))
+});
 
-// --------------------------------
-// Images
-// --------------------------------
-gulp.task('images', ['clean'], function () {
-  return gulp.src('./src/images/**/*')
-    .pipe(imagemin([
-      imagemin.gifsicle({interlaced: true}),
-      imagemin.jpegtran({progressive: true}),
-      imagemin.svgo({
-        plugins: [
-          {removeViewBox: true},
-          {cleanupIDs: false}
-        ]
-      })
-    ]))
-    .pipe(gulp.dest('./images'))
-})
+gulp.task('build', ['sass', 'js'])
 
-// --------------------------------
-// PHP
-// --------------------------------
-var phpFileLocations = ['src/**/*.php', '*.php']
-
-gulp.task('reload-php', function () {
-  browserSync.reload(phpFileLocations)
-})
-
-// --------------------------------
-// Build
-// --------------------------------
-gulp.task('build', ['js', 'scss', 'images'])
-
-// --------------------------------
-// Default
-// --------------------------------
-gulp.task('default', ['build'], function () {
-  browserSync.init({
-    proxy: 'http://localhost:8888',
-    open: false
-  })
-  gulp.watch('src/**/*.js', ['js'])
-  gulp.watch('src/**/*.scss', ['scss'])
-  gulp.watch(phpFileLocations, ['reload-php'])
-})
+gulp.task('default',function(){
+  gulp.watch('src/scripts.js/**/*.js',['js']);
+  gulp.watch('src/styles/**/*.sass',['sass']);
+});

@@ -4,7 +4,7 @@
   "description": "Shared front-end project scaffolding for use with WP and Shopify starter themes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "./node_modules/webpack-cli/bin/cli.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/twg/twgx-scaffolding/issues"
   },
-  "homepage": "https://github.com/twg/twgx-scaffolding#readme"
+  "homepage": "https://github.com/twg/twgx-scaffolding#readme",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-plumber": "*",
+    "gulp-rename": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-sass": "*",
+    "gulp-autoprefixer": "*",
+    "es6-promise": "*",
+    "gulp-clean-css": "*",
+    "gulp-browserify": "*",
+    "gulp-uglify": "*"
+  }
 }
