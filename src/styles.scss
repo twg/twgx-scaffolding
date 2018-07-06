@@ -1,3 +1,9 @@
-body {
-  background: #ccc;
-}
+@import "./misc/variables";
+@import "./misc/mixins";
+
+// ------------------------------------------
+// Import all component styles
+// ------------------------------------------
+@import "./components/accordion/accordion";
+@import "./components/combo/combo";
+@import "./components/grid/grid";

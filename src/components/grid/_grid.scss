@@ -1,0 +1,74 @@
+@mixin grid () {
+  // Parent div, always needed for a grid
+  .grid {
+    font-size: 0;
+    margin-left: $gutter * -1;
+
+    & > * {
+      padding-left: $gutter;
+      font-size: $base-font-size;
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+  // Add to .grid to align all grid items to the middle of row
+  .grid--middle {
+    & > * {
+      vertical-align: middle;
+    }
+  }
+
+  // Add to .grid to align any leftover grid items to the center
+  .grid--center {
+    & > * {
+      text-align: center;
+    }
+  }
+
+  .grid--full {
+    margin-left: 0;
+    > * {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .grid--narrow {
+    margin-left: $gutter / -3;
+    > * {
+      padding-left: $gutter / 3;
+    }
+  }
+
+  .grid--wide {
+    margin-left: $gutter * -3;
+    > * {
+      padding-left: $gutter * 3;
+    }
+  }
+
+  .grid--rev {
+    direction: rtl;
+    > * {
+      direction: ltr;
+    }
+  }
+}
+
+@mixin grid-item($width: 1, $total: 1, $breakpoint: "") {
+  $itemWidth: $width / $total * 100%;
+
+  @if $breakpoint != "" {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      .grid-#{$width}of#{$total}--#{$breakpoint} {
+        width: $itemWidth;
+      }
+    }
+  }
+
+  @else {
+    .grid-#{$width}of#{$total} {
+      width: $itemWidth;
+    }
+  }
+}

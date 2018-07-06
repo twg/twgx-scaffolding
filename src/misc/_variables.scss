@@ -1,0 +1,32 @@
+// --------------------------
+// Base Settings
+// --------------------------
+$base-font-size: 16px;
+$gutter: 20px;
+$container-width: 1440px;
+$nav-breakpoint: 640px;
+$nav-sticky: true;
+$section-padding: 75px;
+$section-padding-palm: 30px;
+
+// --------------------------
+// Breakpoints
+// --------------------------
+$breakpoints: (
+  palm: '(max-width: 480px)',
+  lap: '(min-width: 481px) and (max-width: 1023px)',
+  desk: '(min-width: 1024px)',
+  portable: '(max-width: 1023px)',
+  large: '(min-width: 481px)',
+  iphonex: 'only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3)'
+);
+
+// --------------------------
+// Colours
+// --------------------------
+$primary: #00a300;
+$secondary: #fad841;
+$success: #97c475;
+$warning: #f8b34c;
+$error: #d33535;
+$notice: #7ecefd;

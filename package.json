@@ -18,15 +18,16 @@
   },
   "homepage": "https://github.com/twg/twgx-scaffolding#readme",
   "devDependencies": {
-    "gulp": "*",
+    "es6-promise": "*",
+    "gulp": "^3.0.0",
+    "gulp-autoprefixer": "*",
+    "gulp-browserify": "*",
+    "gulp-clean-css": "*",
     "gulp-plumber": "*",
     "gulp-rename": "*",
-    "gulp-sourcemaps": "*",
     "gulp-sass": "*",
-    "gulp-autoprefixer": "*",
-    "es6-promise": "*",
-    "gulp-clean-css": "*",
-    "gulp-browserify": "*",
+    "gulp-sass-glob": "^1.0.9",
+    "gulp-sourcemaps": "*",
     "gulp-uglify": "*"
   }
 }

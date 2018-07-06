@@ -1,0 +1,40 @@
+@mixin accordion() {
+  .accordion {
+    padding: 20px 0;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid rgba(black, 0.2);
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .accordion-label {
+    padding: 20px 0;
+    font-size: 18px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    &:before {
+      content: '+';
+      display: inline-block;
+      opacity: 0.4;
+      width: 10px;
+      text-align: center;
+    }
+    &.accordion--open {
+      &:before {
+        content: '-';
+        font-weight: bold;
+      }
+    }
+  }
+
+  .accordion-content {
+    display: none;
+    line-height: 28px;
+    padding-bottom: 30px;
+    padding-left: 14px;
+  }
+}
