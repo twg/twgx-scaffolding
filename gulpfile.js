@@ -61,6 +61,12 @@ gulp.task('move', ['clean'], function () {
 // ------------------------------------------
 gulp.task('html', ['clean', 'scss', 'js'], function () {
   return gulp.src('src/index.html')
+    .pipe(plumber({
+      handleError: function (err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
@@ -97,7 +103,7 @@ gulp.task('build', ['scss', 'js', 'move', 'html'])
 // Default Gulp Task
 // ------------------------------------------
 gulp.task('default', ['build'],function(){
-  gulp.watch('src/**/*.html',['html']);
-  gulp.watch('src/**/*.js',['js']);
-  gulp.watch('src/**/*.scss',['scss', 'move']);
+  gulp.watch('src/**/*.html',['build']);
+  gulp.watch('src/**/*.js',['build']);
+  gulp.watch('src/**/*.scss',['build']);
 });

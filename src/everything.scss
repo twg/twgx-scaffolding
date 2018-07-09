@@ -5,8 +5,11 @@
 // ------------------------------------------
 @include reset();
 @include colours();
+
+// ------------------------------------------
+// Grid
+// ------------------------------------------
 @include grid();
-@include combo();
 @include typography();
 @include grid-item(1, 2);
 @include grid-item(1, 3);
@@ -19,6 +22,9 @@
 // ------------------------------------------
 // Components
 // ------------------------------------------
+@include combo();
 @include accordion();
 @include button();
 @include message();
+@include hero();
+@include container();

@@ -1,0 +1,21 @@
+@mixin container () {
+  .container {
+    max-width: $container-width;
+    padding: 0 $gutter * 2;
+    margin: 0 auto;
+    @include media (portable) {
+      padding: 0 $gutter;
+    }
+  }
+
+  .container--narrow {
+    max-width: 768px;
+  }
+
+  .container--top {
+    padding-top: $section-padding;
+    @include media (palm) {
+      padding-top: $section-padding / 2;
+    }
+  }
+}

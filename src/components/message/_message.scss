@@ -1,6 +1,7 @@
 @mixin message () {
   .message {
     padding: 20px;
+    margin-bottom: 20px;
   }
 
   .message--success {

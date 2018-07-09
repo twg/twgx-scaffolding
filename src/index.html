@@ -11,16 +11,31 @@
       <sg-logo><img src="./logo.svg" alt="logo"></sg-logo>
     </sg-nav>
 
-    @@include('./misc/variables.html')
-    @@include('./misc/typography.html')
-    @@include('./components/list/list.html')
-    @@include('./components/button/button.html')
-    @@include('./components/message/message.html')
-    @@include('./components/form/form.html')
-    @@include('./components/table/table.html')
-    @@include('./components/accordion/accordion.html')
+    <sg-section>
+      <a href="#global-styles" class="sg-h1" id="global-styles"> Global Styles </a>
+      @@include('./misc/colours.html')
+      @@include('./misc/typography.html')
+    </sg-section>
+
+    <sg-section>
+      <a href="#layout-styles" class="sg-h1" id="layout-styles"> Layout Styles </a>
+      @@include('./components/container/container.html')
+      @@include('./components/combo/combo.html')
+      @@include('./components/grid/grid.html')
+    </sg-section>
+
+    <sg-section>
+      <a href="#components" class="sg-h1" id="components"> Components </a>
+      @@include('./components/accordion/accordion.html')
+      @@include('./components/button/button.html')
+      @@include('./components/form/form.html')
+      @@include('./components/hero/hero.html')
+      @@include('./components/list/list.html')
+      @@include('./components/message/message.html')
+      @@include('./components/table/table.html')
+    </sg-section>
 
     <script type="text/javascript">@@include('../dist/index.min.js')</script>
-    <script src="./nav.js" type="text/javascript"></script>
+    <script src="./styleguide.js" type="text/javascript"></script>
   </body>
 </html>

@@ -1,0 +1,35 @@
+@mixin hero () {
+  .hero {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    @include media (portable) {
+      background-attachment: scroll;
+    }
+  }
+
+  .hero-inner {
+    background-color: rgba($primary, 0.5);
+    padding: 150px 0;
+    @include media (palm) {
+      padding: 60px 0;
+    }
+  }
+
+  .hero-title {
+    font-weight: normal;
+    font-size: 48px;
+    margin-bottom: 0;
+    @include media (palm) {
+      font-size: 28px;
+    }
+  }
+
+  .hero-cta {
+    margin-top: 40px;
+  }
+}

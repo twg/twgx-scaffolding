@@ -11,3 +11,32 @@
 @import "./components/grid/_grid.scss";
 @import "./components/button/_button.scss";
 @import "./components/message/_message.scss";
+@import "./components/hero/_hero.scss";
+@import "./components/container/_container.scss";
+
+body.sg-body {
+  max-width: none !important;
+}
+
+sg-placeholder {
+  display: block;
+  background: grey;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: 'placeholder';
+    text-transform: uppercase;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+sg-spacer {
+  display: block;
+  height: 20px;
+}
