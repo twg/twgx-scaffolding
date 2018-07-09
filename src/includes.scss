@@ -3,6 +3,7 @@
 // ------------------------------------------
 // Misc
 // ------------------------------------------
+@include reset();
 @include grid();
 @include grid-item(1, 2);
 @include grid-item(1, 3);

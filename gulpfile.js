@@ -2,18 +2,26 @@ var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
+var scss = require('gulp-sass');
 var scssGlob = require('gulp-sass-glob')
 var autoPrefixer = require('gulp-autoprefixer');
 require('es6-promise').polyfill();
 var cleanCss = require('gulp-clean-css');
 var browserify = require('gulp-browserify');
 var uglify = require('gulp-uglify');
+var del = require('del');
+
+// ------------------------------------------
+// Clean dist directory
+// ------------------------------------------
+gulp.task('clean', function () {
+  return del('dist')
+})
 
 // ------------------------------------------
 // Convert SCSS to CSS
 // ------------------------------------------
-gulp.task('sass', function(){
+gulp.task('scss', ['clean'], function(){
   return gulp.src('src/includes.scss')
     .pipe(plumber({
       handleError: function (err) {
@@ -23,7 +31,7 @@ gulp.task('sass', function(){
     }))
     .pipe(sourcemaps.init())
     .pipe(scssGlob())
-    .pipe(sass())
+    .pipe(scss())
     .pipe(autoPrefixer())
     .pipe(rename('styles.css'))
     .pipe(gulp.dest('dist'))
@@ -36,7 +44,7 @@ gulp.task('sass', function(){
 // ------------------------------------------
 // Move SCSS files
 // ------------------------------------------
-gulp.task('move', function () {
+gulp.task('move', ['clean'], function () {
   return gulp.src('src/**/*.scss')
     .pipe(gulp.dest('dist'))
 })
@@ -44,7 +52,7 @@ gulp.task('move', function () {
 // ------------------------------------------
 // Prep and Move JS files
 // ------------------------------------------
-gulp.task('js', function(){
+gulp.task('js', ['clean'], function(){
   return gulp.src('src/index.js')
     .pipe(plumber({
       handleError: function (err) {
@@ -64,12 +72,12 @@ gulp.task('js', function(){
 // ------------------------------------------
 // Build Task (no watch)
 // ------------------------------------------
-gulp.task('build', ['sass', 'js', 'move'])
+gulp.task('build', ['scss', 'js', 'move'])
 
 // ------------------------------------------
 // Default Gulp Task
 // ------------------------------------------
-gulp.task('default',function(){
-  gulp.watch('src/scripts.js/**/*.js',['js']);
-  gulp.watch('src/styles/**/*.sass',['sass', 'move']);
+gulp.task('default', ['build'],function(){
+  gulp.watch('src/**/*.js',['js']);
+  gulp.watch('src/**/*.scss',['scss', 'move']);
 });
