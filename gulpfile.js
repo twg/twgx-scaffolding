@@ -10,6 +10,7 @@ var cleanCss = require('gulp-clean-css');
 var browserify = require('gulp-browserify');
 var uglify = require('gulp-uglify');
 var del = require('del');
+var fileinclude = require('gulp-file-include')
 
 // ------------------------------------------
 // Clean dist directory
@@ -56,6 +57,18 @@ gulp.task('move', ['clean'], function () {
 })
 
 // ------------------------------------------
+// Combine HTML files
+// ------------------------------------------
+gulp.task('html', ['clean'], function () {
+  return gulp.src('src/index.html')
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest('./'))
+})
+
+// ------------------------------------------
 // Prep and Move JS files
 // ------------------------------------------
 gulp.task('js', ['clean'], function(){
@@ -78,12 +91,13 @@ gulp.task('js', ['clean'], function(){
 // ------------------------------------------
 // Build Task (no watch)
 // ------------------------------------------
-gulp.task('build', ['scss', 'js', 'move'])
+gulp.task('build', ['scss', 'js', 'move', 'html'])
 
 // ------------------------------------------
 // Default Gulp Task
 // ------------------------------------------
 gulp.task('default', ['build'],function(){
+  gulp.watch('src/**/*.html',['html']);
   gulp.watch('src/**/*.js',['js']);
   gulp.watch('src/**/*.scss',['scss', 'move']);
 });

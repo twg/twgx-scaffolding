@@ -1,4 +1,4 @@
 window.twgx = {}
 
 require('./misc/vendor')()
-require('./components/accordion')()
+require('./components/accordion/accordion.js')()

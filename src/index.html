@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TWGx Scaffolding</title>
+    <link rel="stylesheet" href="http://twg.github.io/styleguide/dist/styleguide.css">
+    <link rel="stylesheet" href="./dist/styles.css">
+  </head>
+  <body class="sg-body">
+
+    <sg-nav>
+      <sg-logo><img src="./logo.svg" alt="logo"></sg-logo>
+    </sg-nav>
+
+    @@include('./misc/variables.html')
+    @@include('./misc/typography.html')
+    @@include('./components/list/list.html')
+    @@include('./components/button/button.html')
+    @@include('./components/message/message.html')
+    @@include('./components/form/form.html')
+    @@include('./components/table/table.html')
+    @@include('./components/accordion/accordion.html')
+
+    <script type="text/javascript" src="./dist/index.min.js"></script>
+    <script src="./nav.js" type="text/javascript"></script>
+  </body>
+</html>
