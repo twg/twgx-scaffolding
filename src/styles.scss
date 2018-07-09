@@ -1,10 +1,10 @@
-@import "./misc/reset";
-@import "./misc/variables";
-@import "./misc/mixins";
+@import "./misc/_reset.scss";
+@import "./misc/_variables.scss";
+@import "./misc/_mixins.scss";
 
 // ------------------------------------------
 // Import all component styles
 // ------------------------------------------
-@import "./components/accordion/accordion";
-@import "./components/combo/combo";
-@import "./components/grid/grid";
+@import "./components/accordion/_accordion.scss";
+@import "./components/combo/_combo.scss";
+@import "./components/grid/_grid.scss";
