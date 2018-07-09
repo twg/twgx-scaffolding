@@ -59,7 +59,7 @@ gulp.task('move', ['clean'], function () {
 // ------------------------------------------
 // Combine HTML files
 // ------------------------------------------
-gulp.task('html', ['clean'], function () {
+gulp.task('html', ['clean', 'scss', 'js'], function () {
   return gulp.src('src/index.html')
     .pipe(fileinclude({
       prefix: '@@',

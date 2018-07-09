@@ -3,11 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>TWGx Scaffolding</title>
-    <link rel="stylesheet" href="http://twg.github.io/styleguide/dist/styleguide.css">
-    <link rel="stylesheet" href="./dist/styles.css">
+    <link rel="stylesheet" href="https://twg.github.io/styleguide/dist/styleguide.css">
+    <style media="screen">@@include('../dist/styles.min.css')</style>
   </head>
   <body class="sg-body">
-
     <sg-nav>
       <sg-logo><img src="./logo.svg" alt="logo"></sg-logo>
     </sg-nav>
@@ -21,7 +20,7 @@
     @@include('./components/table/table.html')
     @@include('./components/accordion/accordion.html')
 
-    <script type="text/javascript" src="./dist/index.min.js"></script>
+    <script type="text/javascript">@@include('../dist/index.min.js')</script>
     <script src="./nav.js" type="text/javascript"></script>
   </body>
 </html>

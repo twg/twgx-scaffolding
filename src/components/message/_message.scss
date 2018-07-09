@@ -1,0 +1,24 @@
+@mixin message () {
+  .message {
+    padding: 20px;
+  }
+
+  .message--success {
+    background: $success;
+    color: white;
+  }
+
+  .message--error {
+    background: $error;
+    color: white;
+  }
+
+  .message--warning {
+    background: $warning;
+  }
+
+  .message--notice {
+    background: $notice;
+    color: white;
+  }
+}
