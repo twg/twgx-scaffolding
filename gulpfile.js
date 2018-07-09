@@ -14,8 +14,14 @@ var del = require('del');
 // ------------------------------------------
 // Clean dist directory
 // ------------------------------------------
+var cleaned = false;
 gulp.task('clean', function () {
-  return del('dist')
+  if (cleaned) {
+    return true
+  } else {
+    cleaned = true
+    return del('dist')
+  }
 })
 
 // ------------------------------------------

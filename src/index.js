@@ -1,5 +1,4 @@
-function init () {
-  require('./components/accordion')()
-}
+window.twgx = {}
 
-module.exports = init
+require('./misc/vendor')()
+require('./components/accordion')()

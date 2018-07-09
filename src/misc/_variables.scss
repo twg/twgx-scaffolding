@@ -24,9 +24,34 @@ $breakpoints: (
 // --------------------------
 // Colours
 // --------------------------
-$primary: #00a300;
-$secondary: #fad841;
-$success: #97c475;
-$warning: #f8b34c;
-$error: #d33535;
-$notice: #7ecefd;
+$primary: #5bb16e;
+$secondary: #ffcf47;
+$tertiary: #ffabab;
+$success: #5bb16e;
+$warning: #ffcf47;
+$error: #f44770;
+$notice: #0543ff;
+
+@mixin colours() {
+  .sg-primary {
+    border-color: $primary;
+  }
+  .sg-secondary {
+    border-color: $secondary;
+  }
+  .sg-tertiary {
+    border-color: $tertiary;
+  }
+  .sg-success {
+    border-color: $success;
+  }
+  .sg-warning {
+    border-color: $warning;
+  }
+  .sg-error {
+    border-color: $error;
+  }
+  .sg-notice {
+    border-color: $notice;
+  }
+}

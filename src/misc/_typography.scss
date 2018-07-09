@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+@mixin typography () {
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: $base-font-size;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  h5 {
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  h6 {
+    font-size: 16px;
+  }
+
+  a {
+    color: $primary;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: darken($primary, 5);
+    }
+  }
+
+  p {
+    line-height: 28px;
+  }
+}

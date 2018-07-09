@@ -11,4 +11,4 @@ function init () {
   })
 }
 
-module.exports = init
+module.exports = window.twgx.accordion = init

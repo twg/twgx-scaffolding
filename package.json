@@ -31,5 +31,8 @@
     "gulp-sass-glob": "^1.0.9",
     "gulp-sourcemaps": "*",
     "gulp-uglify": "*"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }
