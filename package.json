@@ -1,8 +1,8 @@
 {
   "name": "twgx-scaffolding",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Shared front-end project scaffolding for use with WP and Shopify starter themes",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "gulp build",
     "start": "gulp"
