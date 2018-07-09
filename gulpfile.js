@@ -22,7 +22,7 @@ gulp.task('clean', function () {
 // Convert SCSS to CSS
 // ------------------------------------------
 gulp.task('scss', ['clean'], function(){
-  return gulp.src('src/includes.scss')
+  return gulp.src('src/everything.scss')
     .pipe(plumber({
       handleError: function (err) {
         console.log(err);

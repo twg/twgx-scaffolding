@@ -1,6 +1,6 @@
 {
   "name": "twgx-scaffolding",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shared front-end project scaffolding for use with WP and Shopify starter themes",
   "main": "index.js",
   "scripts": {
