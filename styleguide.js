@@ -2,7 +2,7 @@ $(document).ready(function () {
   var navGroup = null
 
   $('[class^="sg-h"]').each(function () {
-    var name = $(this).text().trim().toLowerCase()
+    var name = $(this).text()
     var href = $(this).attr('href')
     if ($(this).hasClass('sg-h1')) {
       navGroup = $('<div />')
