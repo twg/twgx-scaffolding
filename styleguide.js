@@ -9,8 +9,10 @@ $(document).ready(function () {
       $('sg-nav').append(navGroup)
     } else {
       var dataRef = $(this).data('ref')
-      var sourceURL = 'https://raw.githubusercontent.com/twg/twgx-scaffolding/master/src/components/' + dataRef + '/' + dataRef + '.html'
-      $(this).append('<span class="sg-source" data-ref="' + sourceURL + '">View Source</span>')
+      if (dataRef) {
+        var sourceURL = 'https://raw.githubusercontent.com/twg/twgx-scaffolding/master/src/components/' + dataRef + '/' + dataRef + '.html'
+        $(this).append('<span class="sg-source" data-ref="' + sourceURL + '">View Source</span>')
+      }
     }
     navGroup.append('<a href="' + href + '">' + name + '</a>')
   })
