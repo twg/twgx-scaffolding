@@ -28,3 +28,10 @@
 @include message();
 @include hero();
 @include container();
+@include logoQuilt();
+
+// ------------------------------------------
+// Effects
+// ------------------------------------------
+@include scroll();
+@include enter();

@@ -1,10 +1,14 @@
+// ------------------------------------------
+// Misc
+// ------------------------------------------
 @import "./misc/_reset.scss";
 @import "./misc/_variables.scss";
 @import "./misc/_mixins.scss";
 @import "./misc/_typography.scss";
+@import "./misc/_styleguide.scss";
 
 // ------------------------------------------
-// Import all component styles
+// Components
 // ------------------------------------------
 @import "./components/accordion/_accordion.scss";
 @import "./components/combo/_combo.scss";
@@ -13,38 +17,10 @@
 @import "./components/message/_message.scss";
 @import "./components/hero/_hero.scss";
 @import "./components/container/_container.scss";
+@import "./components/logoQuilt/_logoQuilt.scss";
 
-body.sg-body {
-  max-width: none !important;
-}
-
-sg-placeholder {
-  display: block;
-  background: grey;
-  height: 100px;
-  position: relative;
-  overflow: hidden;
-  &:before {
-    content: 'placeholder';
-    text-transform: uppercase;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 10px;
-    transform: translate(-50%, -50%);
-  }
-}
-
-sg-spacer {
-  display: block;
-  height: 20px;
-}
-
-.sg-h2 {
-  span {
-    font-size: 10px;
-    font-weight: normal;
-    vertical-align: middle;
-  }
-}
+// ------------------------------------------
+// Effects
+// ------------------------------------------
+@import "./effects/scroll/_scroll.scss";
+@import "./effects/enter/_enter.scss";

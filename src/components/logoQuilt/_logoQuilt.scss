@@ -1,0 +1,37 @@
+@mixin logoQuilt () {
+  .logoQuilt {
+    text-align: center;
+    padding: $section-padding 0;
+    @include media (palm) {
+      padding: $section-padding-palm 0;
+    }
+  }
+
+  .logoQuilt-tier {
+    margin-bottom: 40px;
+  }
+
+  .logoQuilt-tierTitle {
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .logoQuilt-logo {
+    display: inline-block;
+    margin: 10px;
+    transition: none;
+    vertical-align: middle;
+    img {
+      display: block;
+      max-height: 70px;
+      opacity: 0.8;
+      transition: all 0.2s ease-in-out;
+      filter: grayscale(100%);
+    }
+    &:hover img {
+      opacity: 1;
+      filter: grayscale(0);
+    }
+  }
+}

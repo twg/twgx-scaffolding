@@ -1,0 +1,7 @@
+@mixin scroll () {
+  .effect--scroll {
+    @include media (palm) {
+      transform: none !important;
+    }
+  }
+}

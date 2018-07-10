@@ -11,6 +11,7 @@ var browserify = require('gulp-browserify');
 var uglify = require('gulp-uglify');
 var del = require('del');
 var fileinclude = require('gulp-file-include')
+var babel = require('gulp-babel');
 
 // ------------------------------------------
 // Clean dist directory
@@ -86,6 +87,9 @@ gulp.task('js', ['clean'], function(){
       }
     }))
     .pipe(browserify())
+    .pipe(babel({
+      presets: ['env']
+    }))
     .pipe(gulp.dest('dist'))
     .pipe(rename({
       suffix: '.min'

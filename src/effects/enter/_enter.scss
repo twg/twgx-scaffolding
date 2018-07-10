@@ -1,0 +1,7 @@
+@mixin enter () {
+  @include media(palm) {
+    [data-enter] {
+      transform: none !important;
+    }
+  }  
+}
