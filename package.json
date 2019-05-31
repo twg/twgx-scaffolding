@@ -23,7 +23,7 @@
     "babel-preset-env": "^1.7.0",
     "del": "^3.0.0",
     "es6-promise": "*",
-    "gulp": "^3.0.0",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "*",
     "gulp-babel": "^7.0.1",
     "gulp-browserify": "*",
